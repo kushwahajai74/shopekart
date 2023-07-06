@@ -23,7 +23,7 @@ const paymentRoute = require("./routes/paymentRoute");
 app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://64a66b4865863f4de7887ef3--sensational-cendol-e260ad.netlify.app"
+    "https://64a67151a702eb4f684cbdba--sensational-cendol-e260ad.netlify.app"
   ); // update to match the domain you will make the request from
 
   res.header(
