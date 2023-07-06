@@ -14,14 +14,12 @@ import Loader from "../Loader/Loader";
 import { toast } from "react-hot-toast";
 import MetaData from "../layouts/MetaData";
 import { addToCart } from "../../features/cart/cartSlice";
-import {
-  Dialog,
-  Button,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-} from "@mui/material";
-import { Rating } from "@mui/material";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import Rating from "@mui/material/Rating";
 import {
   newReview,
   newReviewReset,

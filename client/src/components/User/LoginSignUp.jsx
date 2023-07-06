@@ -4,7 +4,7 @@ import LockOpenIcon from "@mui/icons-material/LockOpen";
 import FaceIcon from "@mui/icons-material/Face";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginSignUp.css";
 import { clearErrors, login, register } from "../../features/User/UserSlice";
 import { toast } from "react-hot-toast";

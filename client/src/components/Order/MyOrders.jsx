@@ -4,7 +4,8 @@ import "./MyOrders.css";
 import LaunchIcon from "@mui/icons-material/Launch";
 import MetaData from "../layouts/MetaData";
 import Loader from "../Loader/Loader";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
+
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { clearErrors, myOrders } from "../../features/order/myOrderSlice";

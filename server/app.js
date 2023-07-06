@@ -5,8 +5,10 @@ const cookieParser = require("cookie-parser");
 const errorMiddleware = require("./middleware/error");
 const bodyParser = require("body-parser");
 const fileupload = require("express-fileupload");
+const path = require("path");
 
 //config
+
 dotenv.config({ path: "server/config/config.env" });
 
 app.use(express.json());
@@ -38,6 +40,12 @@ app.use("/api/v1", productRoute);
 app.use("/api/v1", userRoute);
 app.use("/api/v1", orderRoute);
 app.use("/api/v1", paymentRoute);
+
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
+});
 
 //Middleware for error
 app.use(errorMiddleware);

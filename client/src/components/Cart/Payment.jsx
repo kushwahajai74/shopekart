@@ -9,7 +9,8 @@ import {
   CardExpiryElement,
 } from "@stripe/react-stripe-js";
 import MetaData from "../layouts/MetaData";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
+
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import "./Payment.css";

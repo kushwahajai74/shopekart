@@ -8,7 +8,7 @@ import "./Products.css";
 import { useParams } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
-import { Rating } from "@mui/material";
+import Rating from "@mui/material/Rating";
 import Pagination from "react-js-pagination";
 import MetaData from "../layouts/MetaData";
 

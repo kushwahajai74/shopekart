@@ -1,5 +1,4 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
-import FaceIcon from "@mui/icons-material/Face";
+import React, { useState, useEffect } from "react";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
