@@ -4,6 +4,8 @@ import productDetailsReducer from "./features/products/productDetailsSlice";
 import UserReducer from "./features/User/UserSlice";
 import userUpdateReducer from "./features/user/userUpdateSlice";
 import forgotPassworReducer from "./features/user/forgotPasswordSlice";
+import cartReducer from "./features/cart/cartSlice";
+import orderReducer from "./features/order/orderSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +14,8 @@ export const store = configureStore({
     user: UserReducer,
     profile: userUpdateReducer,
     forgotPassword: forgotPassworReducer,
+    cart: cartReducer,
+    newOrder: orderReducer,
   },
 });
 

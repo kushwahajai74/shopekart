@@ -4,13 +4,14 @@ import LockOpenIcon from "@mui/icons-material/LockOpen";
 import FaceIcon from "@mui/icons-material/Face";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./LoginSignUp.css";
 import { clearErrors, login, register } from "../../features/User/UserSlice";
 import { toast } from "react-hot-toast";
 const LoginSignUp = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
+  // const location = useLocation();
   const { isLoading, error, isAuthenticated } = useSelector(
     (store) => store.user
   );
@@ -66,13 +67,14 @@ const LoginSignUp = () => {
     }
   };
 
+  const redirect = location.search ? location.search.split("=")[1] : "account";
   useEffect(() => {
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
     }
-    if (isAuthenticated === true) navigate("/account");
-  }, [dispatch, error, navigate, isAuthenticated]);
+    if (isAuthenticated === true) navigate(`/${redirect}`);
+  }, [dispatch, error, navigate, isAuthenticated, redirect]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {

@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
 import { Rating } from "@mui/material";
 import Pagination from "react-js-pagination";
-import ReactStars from "react-stars";
 import MetaData from "../layouts/MetaData";
 
 const categories = [

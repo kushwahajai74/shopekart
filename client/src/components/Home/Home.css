@@ -1,5 +1,6 @@
 .banner {
-  background-image: url("../../images/cover.jfif");
+  /* background-image: url("../../images/cover.jfif"); */
+  background-image: url("../../images/cover2.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -42,7 +43,8 @@
   position: absolute;
   top: 0%;
   left: 0;
-  clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+  /* clip-path: polygon(100% 68%, 0 100%, 100% 100%); */
+  clip-path: polygon(0 73%, 0% 100%, 100% 100%);
   max-width: 100%;
 }
 
@@ -57,14 +59,13 @@
   color: rgb(0, 0, 0, 0.7);
 }
 /* container */
-.container{
+.container {
   display: flex;
   margin: 2vmax auto;
   width: 80vw;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 
 /* product */
 .productCard {

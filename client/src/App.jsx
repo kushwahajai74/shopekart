@@ -11,33 +11,48 @@ import Products from "./components/Product/Products.jsx";
 import Search from "./components/Product/Search.jsx";
 import LoginSignUp from "./components/User/LoginSignUp";
 import Profile from "./components/User/Profile.jsx";
-
-import { loadUser } from "./features/User/UserSlice";
+import { loadUser } from "./features/user/UserSlice";
 import { useDispatch, useSelector } from "react-redux";
 import UserOptions from "./components/layouts/Header/userOptions";
 import ProtectedRoute from "./components/Route/ProtectedRoute";
 import UpdateProfile from "./components/User/UpdateProfile";
 import UpdatePassword from "./components/User/UpdatePassword";
-import ForgotPassword from "./components/User/ForgotPassword.jsx";
-import ResetPassword from "./components/User/ResetPassword.jsx";
+import ForgotPassword from "./components/User/ForgotPassword";
+import ResetPassword from "./components/User/ResetPassword";
+import Cart from "./components/Cart/Cart";
+import Shipping from "./components/Cart/Shipping";
+import ConfirmOrder from "./components/Cart/ConfirmOrder";
+import Payment from "./components/Cart/Payment";
+import OrderSuccess from "./components/Cart/OrderSuccess.jsx";
+import axios from "axios";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 function App() {
   const dispatch = useDispatch();
   const { user, isAuthenticated } = useSelector((state) => state.user);
+  const [stripeApiKey, setStripeApiKey] = useState("");
+
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v1/stripeapikey");
+    setStripeApiKey(data.stripeApiKey);
+  }
 
   useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ["Roboto", "Gill Sans", "cursive"],
-      },
-    });
+    // WebFont.load({
+    //   google: {
+    //     families: ["Roboto", "Gill Sans", "cursive"],
+    //   },
+    // });
     dispatch(loadUser());
-  }, [dispatch]);
+    getStripeApiKey();
+  }, [dispatch, stripeApiKey]);
 
   return (
     <Router>
       <Header />
       {isAuthenticated && <UserOptions user={user} />}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetails />} />
@@ -45,12 +60,28 @@ function App() {
         <Route path="/products/:keyword" element={<Products />} />
         <Route path="/search" element={<Search />} />
         <Route path="/login" element={<LoginSignUp />} />
+        <Route path="/cart" element={<Cart />} />
+
         <Route path="/password/forgot" element={<ForgotPassword />} />
         <Route path="/password/reset/:token" element={<ResetPassword />} />
+
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/account" element={<Profile />} />
           <Route path="/me/update" element={<UpdateProfile />} />
           <Route path="/password/update" element={<UpdatePassword />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/order/confirm" element={<ConfirmOrder />} />
+          <Route path="/success" element={<OrderSuccess />} />
+          {stripeApiKey && (
+            <Route
+              path="/process/payment"
+              element={
+                <Elements stripe={loadStripe(stripeApiKey)}>
+                  <Payment />
+                </Elements>
+              }
+            />
+          )}
         </Route>
       </Routes>
       <Footer />

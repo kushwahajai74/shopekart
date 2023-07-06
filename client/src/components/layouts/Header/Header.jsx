@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
-import logo from "../../../images/logo.png";
+import logo from "../../../images/logo2.png";
 import { BsSearch } from "react-icons/bs";
 import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
 
@@ -33,6 +33,7 @@ const options = {
   link1Margin: "2vmax",
   profileIconUrl: "/login",
   searchIconUrl: "/search",
+  cartIconUrl: "/cart",
   searchIcon: true,
   SearchIconElement: BsSearch,
   cartIcon: true,
