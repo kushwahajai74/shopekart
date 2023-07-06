@@ -20,19 +20,19 @@ const userRoute = require("./routes/userRoute");
 const orderRoute = require("./routes/orderRoute");
 const paymentRoute = require("./routes/paymentRoute");
 
-app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://64a67151a702eb4f684cbdba--sensational-cendol-e260ad.netlify.app"
-  ); // update to match the domain you will make the request from
+// app.use(function (req, res, next) {
+//   res.header(
+//     "Access-Control-Allow-Origin",
+//     "https://64a67151a702eb4f684cbdba--sensational-cendol-e260ad.netlify.app"
+//   ); // update to match the domain you will make the request from
 
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
-  next();
-});
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   res.header("Access-Control-Allow-Credentials", true);
+//   next();
+// });
 
 app.use("/api/v1", productRoute);
 app.use("/api/v1", userRoute);

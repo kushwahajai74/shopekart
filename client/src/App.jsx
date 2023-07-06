@@ -11,7 +11,6 @@ import Products from "./components/Product/Products.jsx";
 import Search from "./components/Product/Search.jsx";
 import LoginSignUp from "./components/User/LoginSignUp";
 import Profile from "./components/User/Profile.jsx";
-import { loadUser } from "./features/user/UserSlice";
 import { useDispatch, useSelector } from "react-redux";
 import UserOptions from "./components/layouts/Header/userOptions";
 import ProtectedRoute from "./components/Route/ProtectedRoute";
@@ -24,9 +23,12 @@ import Shipping from "./components/Cart/Shipping";
 import ConfirmOrder from "./components/Cart/ConfirmOrder";
 import Payment from "./components/Cart/Payment";
 import OrderSuccess from "./components/Cart/OrderSuccess.jsx";
+import MyOrders from "./components/Order/MyOrders.jsx";
+import OrderDetails from "./components/Order/OrderDetails.jsx";
 import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { loadUser } from "./features/User/UserSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,12 +43,12 @@ function App() {
   useEffect(() => {
     // WebFont.load({
     //   google: {
-    //     families: ["Roboto", "Gill Sans", "cursive"],
+    //     families: ["Roboto", "Open Sans", "cursive"],
     //   },
     // });
     dispatch(loadUser());
     getStripeApiKey();
-  }, [dispatch, stripeApiKey]);
+  }, []);
 
   return (
     <Router>
@@ -72,6 +74,8 @@ function App() {
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/order/confirm" element={<ConfirmOrder />} />
           <Route path="/success" element={<OrderSuccess />} />
+          <Route path="/orders" element={<MyOrders />} />
+          <Route path="/order/:id" element={<OrderDetails />} />
           {stripeApiKey && (
             <Route
               path="/process/payment"
@@ -85,7 +89,13 @@ function App() {
         </Route>
       </Routes>
       <Footer />
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          style: {
+            fontFamily: "Open Sans",
+          },
+        }}
+      />
     </Router>
   );
 }

@@ -6,6 +6,9 @@ import userUpdateReducer from "./features/user/userUpdateSlice";
 import forgotPassworReducer from "./features/user/forgotPasswordSlice";
 import cartReducer from "./features/cart/cartSlice";
 import orderReducer from "./features/order/orderSlice";
+import myOrdersReducer from "./features/order/myOrderSlice";
+import orderDetailsReducer from "./features/order/orderDetailsSlice";
+import newReviewReducer from "./features/products/newReviewSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +19,9 @@ export const store = configureStore({
     forgotPassword: forgotPassworReducer,
     cart: cartReducer,
     newOrder: orderReducer,
+    myOrders: myOrdersReducer,
+    orderDetails: orderDetailsReducer,
+    newReview: newReviewReducer,
   },
 });
 

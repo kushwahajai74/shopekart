@@ -1,5 +1,4 @@
 import React from "react";
-import ReactStars from "react-stars";
 import profilePng from "../../images/Profile.png";
 import { Rating } from "@mui/material";
 

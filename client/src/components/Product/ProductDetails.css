@@ -23,7 +23,7 @@
 
 .CarouselImage {
   width: auto !important;
-  max-height: 28vmax;
+  max-height: 29vmax;
 }
 
 .detailsBlock-1 > h2 {
@@ -47,7 +47,7 @@
 }
 
 .detailsBlock-2-span {
-  font: 200 0.8vmax cursive;
+  font: 200 1vmax "Open Sans";
   color: rgba(0, 0, 0, 0.699);
 }
 
@@ -192,7 +192,7 @@
 }
 
 .noReviews {
-  font: 400 1.3vmax "Gill Sans";
+  font: 400 1.3vmax "Open Sans";
   text-align: center;
   color: rgba(0, 0, 0, 0.548);
 }

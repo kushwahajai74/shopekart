@@ -10,7 +10,7 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
   const productsCount = await Product.countDocuments();
   const apiFeature = new ApiFeatures(Product.find(), req.query)
     .search()
-    .filter()
+    .filter();
   //   .pagination(resultPerPage);
   // const products = await apiFeature.query;
 
@@ -33,6 +33,8 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
 //Get Product Details by id
 exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
+  // return next(new ErrorHandler("Temp error", 404));
+
   if (!product) {
     return next(new ErrorHandler("Product not found", 404));
   }
