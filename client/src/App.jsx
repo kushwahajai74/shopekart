@@ -48,7 +48,7 @@ function App() {
     // });
     dispatch(loadUser());
     getStripeApiKey();
-  }, []);
+  }, [dispatch, stripeApiKey]);
 
   return (
     <Router>

@@ -103,7 +103,7 @@ const ProductDetails = () => {
     centerMode: true,
     showThumbs: false,
     showArrows: true,
-    width: 500,
+    width: 380,
     centerSlidePercentage: 100,
     autoPlay: true,
     interval: 7000,
