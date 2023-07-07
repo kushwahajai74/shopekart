@@ -12,7 +12,7 @@ import Search from "./components/Product/Search.jsx";
 import LoginSignUp from "./components/User/LoginSignUp";
 import Profile from "./components/User/Profile.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import UserOptions from "./components/layouts/Header/userOptions";
+import UserOptions from "./components/layouts/Header/UserOptions";
 import ProtectedRoute from "./components/Route/ProtectedRoute";
 import UpdateProfile from "./components/User/UpdateProfile";
 import UpdatePassword from "./components/User/UpdatePassword";
@@ -28,7 +28,7 @@ import OrderDetails from "./components/Order/OrderDetails.jsx";
 import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { loadUser } from "./features/User/UserSlice";
+import { loadUser } from "./features/user/userSlice";
 
 function App() {
   const dispatch = useDispatch();

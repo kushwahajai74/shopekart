@@ -11,7 +11,7 @@ import {
   clearErrors,
   updateReset,
 } from "../../features/user/userUpdateSlice";
-import { loadUser } from "../../features/User/UserSlice.jsx";
+import { loadUser } from "../../features/user/userSlice.jsx";
 import MetaData from "../layouts/MetaData";
 
 const UpdateProfile = () => {

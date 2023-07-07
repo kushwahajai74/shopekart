@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginSignUp.css";
-import { clearErrors, login, register } from "../../features/User/UserSlice";
+import { clearErrors, login, register } from "../../features/user/userSlice";
 import { toast } from "react-hot-toast";
 const LoginSignUp = () => {
   const dispatch = useDispatch();

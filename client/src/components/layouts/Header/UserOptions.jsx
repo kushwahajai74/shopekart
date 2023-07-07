@@ -9,7 +9,7 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import Backdrop from "@mui/material/Backdrop";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { logout } from "../../../features/User/UserSlice";
+import { logout } from "../../../features/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./Header.css";
 
