@@ -41,11 +41,11 @@ app.use("/api/v1", userRoute);
 app.use("/api/v1", orderRoute);
 app.use("/api/v1", paymentRoute);
 
-// app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
+});
 
 //Middleware for error
 app.use(errorMiddleware);
