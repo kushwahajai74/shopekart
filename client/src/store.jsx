@@ -24,5 +24,5 @@ export const store = configureStore({
     newReview: newReviewReducer,
   },
 });
-
+// export the store
 export default store;
