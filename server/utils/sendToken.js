@@ -9,7 +9,6 @@ const sendToken = (user, statusCode, res) => {
     ),
     sameSite: process.env.NODE_ENV === "Development" ? "lax" : "none",
     secure: process.env.NODE_ENV === "Development" ? false : true,
-    domain: "https://shopekart.vercel.app",
   };
   res.status(statusCode).cookie("token", token, options).json({
     success: true,

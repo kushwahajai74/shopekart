@@ -1,6 +1,5 @@
 import React from "react";
 import "./Sidebar.css";
-import "./Dashboard.css";
 import logo from "../../images/logo2.png";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -18,7 +17,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <Link to="/">
-        <img src={logo} />
+        <img src={logo} alt="shopekart" />
       </Link>
       <Link to="/admin/dashboard">
         <p>

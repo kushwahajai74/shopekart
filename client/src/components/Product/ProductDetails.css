@@ -22,7 +22,7 @@
 }
 
 .CarouselImage {
-  width: auto !important;
+  /* width: auto !important; */
   max-height: 27vmax;
 }
 
@@ -188,7 +188,7 @@
 }
 .reviewCardComment {
   color: rgba(0, 0, 0, 0.445);
-  font: 300 1vmax cursive;
+  font: 300 1vmax "Open Sans";
 }
 
 .noReviews {
@@ -198,6 +198,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .CarouselImage {
+    width: auto !important;
+  }
   .ProductDetails {
     flex-direction: column;
     height: unset;

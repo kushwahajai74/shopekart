@@ -32,7 +32,6 @@ const OrderDetails = () => {
         <Loader />
       ) : (
         <>
-          {" "}
           <MetaData title="Order Details" />
           <div className="orderDetailsPage">
             <div className="orderDetailsContainer">

@@ -14,15 +14,9 @@ import { toast } from "react-hot-toast";
 const MyOrders = () => {
   const dispatch = useDispatch();
 
-  const navigate = useNavigate();
-
   const { isLoading, error, orders } = useSelector((state) => state.myOrders);
 
   const { user } = useSelector((state) => state.user);
-
-  function getValue(params) {
-    console.log(params.getValue(params.id, "id"));
-  }
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
@@ -59,7 +53,6 @@ const MyOrders = () => {
       minWidth: 150,
       type: "number",
       sortable: false,
-      // renderCell: (params) => <a href="${params.row.id}">${params.row.id}</a>,
       renderCell: (params) => {
         return (
           <Link to={`/order/${params.row.id}`}>

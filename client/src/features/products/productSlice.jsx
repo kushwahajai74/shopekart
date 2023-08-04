@@ -34,6 +34,18 @@ const productSlice = createSlice({
         console.log(action.payload);
         state.error = action.payload;
         state.isLoading = false;
+      })
+      .addCase(getAdminProducts.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getAdminProducts.fulfilled, (state, action) => {
+        state.products = action.payload.products;
+        state.isLoading = false;
+      })
+      .addCase(getAdminProducts.rejected, (state, action) => {
+        console.log(action.payload);
+        state.error = action.payload;
+        state.isLoading = false;
       });
   },
 });
@@ -69,6 +81,20 @@ export const getProducts = createAsyncThunk(
     }
   }
 );
-
+export const getAdminProducts = createAsyncThunk(
+  "adminProducts/getProducts",
+  async (thunkAPI) => {
+    try {
+      const resp = await axios.get("/api/v1/admin/products");
+      return resp.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
+  }
+);
 export const { clearErrors } = productSlice.actions;
 export default productSlice.reducer;

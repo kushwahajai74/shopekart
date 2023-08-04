@@ -9,6 +9,8 @@ import orderReducer from "./features/order/orderSlice";
 import myOrdersReducer from "./features/order/myOrderSlice";
 import orderDetailsReducer from "./features/order/orderDetailsSlice";
 import newReviewReducer from "./features/products/newReviewSlice";
+import newProductReducer from "./features/products/newProductSlice";
+import allOrderReducer from "./features/order/allOrderSlice";
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +24,8 @@ export const store = configureStore({
     myOrders: myOrdersReducer,
     orderDetails: orderDetailsReducer,
     newReview: newReviewReducer,
+    product: newProductReducer,
+    allOrders: allOrderReducer,
   },
 });
 // export the store

@@ -26,10 +26,16 @@ import OrderSuccess from "./components/Cart/OrderSuccess.jsx";
 import MyOrders from "./components/Order/MyOrders.jsx";
 import OrderDetails from "./components/Order/OrderDetails.jsx";
 import Dashboard from "./components/Admin/Dashboard.jsx";
+import ProductList from "./components/Admin/ProductList.jsx";
 import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { loadUser } from "./features/user/userSlice";
+import NewProduct from "./components/Admin/NewProduct";
+import UpdateProduct from "./components/Admin/UpdateProduct.jsx";
+import OrderList from "./components/Admin/OrderList";
+import ProcessOrder from "./components/Admin/ProcessOrder";
+import UsersList from "./components/Admin/UsersList";
 
 function App() {
   const dispatch = useDispatch();
@@ -77,7 +83,6 @@ function App() {
           <Route path="/success" element={<OrderSuccess />} />
           <Route path="/orders" element={<MyOrders />} />
           <Route path="/order/:id" element={<OrderDetails />} />
-          <Route path="/admin/dashboard" element={<Dashboard />} />
           {stripeApiKey && (
             <Route
               path="/process/payment"
@@ -89,6 +94,62 @@ function App() {
             />
           )}
         </Route>
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute isAdmin={true}>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/products"
+          element={
+            <ProtectedRoute isAdmin={true}>
+              <ProductList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/product"
+          element={
+            <ProtectedRoute isAdmin={true}>
+              <NewProduct />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/product/:id"
+          element={
+            <ProtectedRoute isAdmin={true}>
+              <UpdateProduct />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/orders"
+          element={
+            <ProtectedRoute isAdmin={true}>
+              <OrderList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/order/:id"
+          element={
+            <ProtectedRoute isAdmin={true}>
+              <ProcessOrder />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <ProtectedRoute isAdmin={true}>
+              <UsersList />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <Footer />
       <Toaster
