@@ -25,7 +25,7 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-import "./DashBoard.css";
+import "./Dashboard.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAdminProducts } from "../../features/products/productSlice.jsx";
 import { allOrders } from "../../features/order/allOrderSlice.jsx";
